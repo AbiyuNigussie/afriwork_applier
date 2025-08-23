@@ -22,6 +22,9 @@ export async function generateCoverLetterForJobId(jobId, chatId) {
 - Keep it within 900-999 characters.
 - Use a confident but humble tone.
 - Use British English.
+ - Output only the letter content. Do not add any preface like "Here is a tailored cover letter" or headings.
+ - Start directly with a salutation (e.g., "Dear Hiring Manager," or a named contact if provided).
+ - Do not wrap in markdown or code fences.
 `;
 
   const user = {
@@ -52,5 +55,21 @@ export async function generateCoverLetterForJobId(jobId, chatId) {
   const messages = prompt.map(([role, content]) => ({ role, content }));
   const res = await chat.invoke(messages);
   const text = res?.content?.toString?.() || (Array.isArray(res?.content) ? res.content.map(p=>p.text||'').join('\n') : '') || '';
-  return text.trim();
+  // Post-process to remove any accidental preface and start at the salutation
+  const clean = (s) => {
+    let t = String(s || '').trim();
+    // strip markdown code fences
+    t = t.replace(/^```[a-z]*\n([\s\S]*?)\n```$/i, '$1').trim();
+    // remove leading generic intros
+    t = t.replace(/^(here\s+is|here's|a\s+tailored\s+cover\s+letter|tailored\s+cover\s+letter|cover\s+letter)[:\-\s]*/i, '').trim();
+    // remove any single first line that ends with ':' (meta heading)
+    t = t.replace(/^[^\n]{0,120}:\s*\n+/i, '');
+    // if 'Dear' appears soon, cut everything before it
+    const dearIdx = t.search(/\bDear\b/i);
+    if (dearIdx > 0 && dearIdx < 200) {
+      t = t.slice(dearIdx).trim();
+    }
+    return t;
+  };
+  return clean(text);
 }

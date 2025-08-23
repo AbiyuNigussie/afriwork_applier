@@ -13,3 +13,5 @@ export const GROQ_API_KEY = process.env.GROQ_API_KEY;
 // Afriwork API apply
 export const AFRIWORK_BEARER_TOKEN = process.env.AFRIWORK_BEARER_TOKEN || '';
 export const AFRIWORK_ORIGIN_PLATFORM_ID = process.env.AFRIWORK_ORIGIN_PLATFORM_ID || '';
+export const AFRIWORK_LOGIN_EMAIL = process.env.AFRIWORK_LOGIN_EMAIL || '';
+export const AFRIWORK_LOGIN_PASSWORD = process.env.AFRIWORK_LOGIN_PASSWORD || '';

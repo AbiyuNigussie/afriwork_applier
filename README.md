@@ -25,6 +25,14 @@ DB_NAME=afriwork
 TELEGRAM_BOT_TOKEN=xxxx
 TELEGRAM_CHAT_ID=123456
 GROQ_API_KEY=sk_xxx  # required only if you want cover letter generation
+# Afriwork API auth (for API-based apply)
+# If AFRIWORK_BEARER_TOKEN is missing or expired, the app will login using the credentials below
+# and cache a fresh token automatically.
+AFRIWORK_LOGIN_EMAIL=you@example.com
+AFRIWORK_LOGIN_PASSWORD=your-password
+AFRIWORK_ORIGIN_PLATFORM_ID=<uuid-from-afriwork>
+# Optional: provide an initial token; can be left empty
+AFRIWORK_BEARER_TOKEN=
 ```
 
 ## Run
