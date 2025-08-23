@@ -1,0 +1,43 @@
+// curl version
+curl 'https://api.afriworket.com/v1/graphql' \
+  -X POST \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:141.0) Gecko/20100101 Firefox/141.0' \
+  -H 'Accept: application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed' \
+  -H 'Accept-Language: en-US,en;q=0.5' \
+  -H 'Accept-Encoding: gzip, deflate, br, zstd' \
+  -H 'Referer: https://afriworket.com/' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZWE1YTM2NC1iMzNkLTQ2YTUtYWVlYi1jYTZkNWFjNTkyZmMiLCJmcmVlbGFuY2UiOnsieC1oYXN1cmEtdXNlci1pZCI6ImVlYTVhMzY0LWIzM2QtNDZhNS1hZWViLWNhNmQ1YWM1OTJmYyIsIngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiLCJhbm9ueW1vdXMiLCJqb2Jfc2Vla2VyIl0sIngtaGFzdXJhLWpvYi1zZWVrZXItaWQiOiIzZjExYTJjZS04N2VkLTQ5MjMtOTFiMy02ODAwZjgzZTQzNzEiLCJzZXNzaW9uLWlkIjoiNzY5NjhkY2YifSwiaWF0IjoxNzU1ODEyODU2LCJleHAiOjE3NTU4OTkyNTYsImF1ZCI6IndlYi1hcHAifQ.z4eUdzg0i5g07lZ3peCDNClexc_opmLxGBTpUFt3KOU' \
+  -H 'x-hasura-role: job_seeker' \
+  -H 'content-type: application/json' \
+  -H 'Origin: https://afriworket.com' \
+  -H 'Sec-GPC: 1' \
+  -H 'Connection: keep-alive' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'Priority: u=0' \
+  -H 'TE: trailers' \
+  --data-raw $'{"operationName":"ApplyToJob","query":"mutation ApplyToJob($application: JobApplicationInput\041, $job_id: uuid\041, $origin_platform_id: uuid\041, $telegramUserName: String) {\\n  apply_to_job(\\n    application: $application\\n    job_id: $job_id\\n    origin_platform_id: $origin_platform_id\\n    telegram_username: $telegramUserName\\n  ) {\\n    application_id\\n    __typename\\n  }\\n}","variables":{"application":{"cover_letter":"Dear Hiring Manager, \\n\\nI\'m thrilled to take this opportunity^|*^|"},"job_id":"341e9fc5-983b-403d-8c18-abb7d0c6b470","origin_platform_id":"9d325ee7-630f-44db-8f6c-d02b30947781"}}'
+
+// fetch version
+
+await fetch("https://api.afriworket.com/v1/graphql", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:141.0) Gecko/20100101 Firefox/141.0",
+        "Accept": "application/graphql-response+json, application/graphql+json, application/json, text/event-stream, multipart/mixed",
+        "Accept-Language": "en-US,en;q=0.5",
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZWE1YTM2NC1iMzNkLTQ2YTUtYWVlYi1jYTZkNWFjNTkyZmMiLCJmcmVlbGFuY2UiOnsieC1oYXN1cmEtdXNlci1pZCI6ImVlYTVhMzY0LWIzM2QtNDZhNS1hZWViLWNhNmQ1YWM1OTJmYyIsIngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiLCJhbm9ueW1vdXMiLCJqb2Jfc2Vla2VyIl0sIngtaGFzdXJhLWpvYi1zZWVrZXItaWQiOiIzZjExYTJjZS04N2VkLTQ5MjMtOTFiMy02ODAwZjgzZTQzNzEiLCJzZXNzaW9uLWlkIjoiNzY5NjhkY2YifSwiaWF0IjoxNzU1ODEyODU2LCJleHAiOjE3NTU4OTkyNTYsImF1ZCI6IndlYi1hcHAifQ.z4eUdzg0i5g07lZ3peCDNClexc_opmLxGBTpUFt3KOU",
+        "x-hasura-role": "job_seeker",
+        "content-type": "application/json",
+        "Sec-GPC": "1",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site",
+        "Priority": "u=0"
+    },
+    "referrer": "https://afriworket.com/",
+    "body": "{\"operationName\":\"ApplyToJob\",\"query\":\"mutation ApplyToJob($application: JobApplicationInput!, $job_id: uuid!, $origin_platform_id: uuid!, $telegramUserName: String) {\\n  apply_to_job(\\n    application: $application\\n    job_id: $job_id\\n    origin_platform_id: $origin_platform_id\\n    telegram_username: $telegramUserName\\n  ) {\\n    application_id\\n    __typename\\n  }\\n}\",\"variables\":{\"application\":{\"cover_letter\":\"Dear Hiring Manager, \\n\\nI'm thrilled to take this opportunity|*|\"},\"job_id\":\"341e9fc5-983b-403d-8c18-abb7d0c6b470\",\"origin_platform_id\":\"9d325ee7-630f-44db-8f6c-d02b30947781\"}}",
+    "method": "POST",
+    "mode": "cors"
+});
