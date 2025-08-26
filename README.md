@@ -1,6 +1,6 @@
 # Afriwork Applier
 
-Refactored version of the previous n8n workflow implemented as a Node.js service.
+An automated job-matching and application tool for Afriwork. It polls jobs via GraphQL, filters them using stored preferences, prevents duplicates, and sends instant Telegram alerts with “Apply”/“Ignore” options. Powered by AI LLMs (Groq) for generating tailored cover letters.
 
 ## Features
 - Polls GraphQL endpoint for published jobs (configurable interval & page size)
