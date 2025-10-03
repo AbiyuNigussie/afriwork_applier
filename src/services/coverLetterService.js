@@ -25,7 +25,8 @@ export async function generateCoverLetterForJobId(jobId, chatId) {
     2.  **Accomplishment Narrative:** Weave my accomplishments into a short story that directly mirrors 1-2 key responsibilities from the job description. Don't just list my skills; show how I used them to achieve a specific, quantifiable result.
     3.  **Connecting Paragraph:** Briefly explain *why* my experience is a direct fit for their needs and how I can replicate that success for their company.
     4.  **Friendly Closing:** End with a warm, forward-looking statement about being eager to discuss the role further.
-*   **Key Requirement:** Keep the entire letter under 900-999 characters. It must be concise and easy to read.
+*   **Key Requirement:** Keep the entire letter under 900-999 characters. It must be concise and easy to read. and dont use bullet points. dont use generic phrases like "I am excited about the opportunity" or "I look forward to contributing to your team."
+* **only generate the cover letter, do not include any other text.**
 
 **Generate a cover letter based on the above information.**
 `;
