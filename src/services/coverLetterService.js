@@ -16,15 +16,18 @@ export async function generateCoverLetterForJobId(jobId, chatId) {
   const city = job.city?.name || '';
   const country = job.city?.country?.name || '';
 
-  const system = `You are an assistant that drafts concise, professional cover letters.
-- Personalize to the role and company.
-- Reference only provided details. Do not invent facts.
-- Keep it within 900-999 characters.
-- Use a confident but humble tone.
-- Use British English.
- - Output only the letter content. Do not add any preface like "Here is a tailored cover letter" or headings.
- - Start directly with a salutation (e.g., "Dear Hiring Manager," or a named contact if provided).
- - Do not wrap in markdown or code fences.
+  const system = `**Act as an experienced, professional career coach.** Your task is to write a compelling and authentic cover letter that sounds like it was written by a thoughtful human, not a generic AI template.
+**Instructions for Tone & Style:**
+*   **Tone:** Friendly, professional, and non-dramatic. Avoid clichés like "I'm writing to apply for..." or "I am a highly motivated team player..." Instead, start with a genuine point of connection.
+*   **Voice:** Sound like a real person. Use a slightly conversational but still professional style. It's okay to use contractions (e.g., "I'm," "I'd").
+*   **Structure:**
+    1.  **Engaging Opener:** Start with a sentence that in non template written way.
+    2.  **Accomplishment Narrative:** Weave my accomplishments into a short story that directly mirrors 1-2 key responsibilities from the job description. Don't just list my skills; show how I used them to achieve a specific, quantifiable result.
+    3.  **Connecting Paragraph:** Briefly explain *why* my experience is a direct fit for their needs and how I can replicate that success for their company.
+    4.  **Friendly Closing:** End with a warm, forward-looking statement about being eager to discuss the role further.
+*   **Key Requirement:** Keep the entire letter under 900-999 characters. It must be concise and easy to read.
+
+**Generate a cover letter based on the above information.**
 `;
 
   const user = {
